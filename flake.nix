@@ -1,32 +1,24 @@
 {
-  description = "A very basic flake";
+  description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    home-manager = {
-        url = "github:nixos/nixpkgs/nixos-unstable";
-        inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+     home-manager = {
+       url = "github:nix-community/home-manager";
+       inputs.nixpkgs.follows = "nixpkgs";
+     };
   };
 
-  outputs = { self, nixpckgs, ... } @inputs:
-  let
-    system = "x86_64-linux";
-    pkgs = inport nixpkgs {
-    inherit system;
-    config = {
-        allowUnfree = true;
-        };
+  outputs = { self, nixpkgs, ... }@inputs: {
+    # use "nixos", or your hostname as the name of the configuration
+    # it's a better practice than "default" shown in the video
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./nixos/configuration.nix
+         inputs.home-manager.nixosModules.default
+      ];
     };
-
-  in {
-	nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-	    specialArgs = {inherit system;};
-		modules = [
-			./nixos/configuration.nix
-			inputs.home-manager.nixosModules.default
-		];
-	};
   };
-
 }
