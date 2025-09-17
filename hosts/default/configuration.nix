@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ../../modules/nixos/gaming.nix
       ../../modules/nixos/nvidia.nix
+      ../../modules/nixos/nh.nix
       inputs.home-manager.nixosModules.default
     ];
 
