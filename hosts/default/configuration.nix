@@ -11,11 +11,14 @@
       ../../modules/nixos/gaming.nix
       ../../modules/nixos/nvidia.nix
       ../../modules/nixos/nh.nix
+      ../../modules/nixos/brother-printer.nix
       inputs.home-manager.nixosModules.default
     ];
 
   # flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  facter.reportPath = ./facter.json;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -33,6 +36,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
@@ -69,7 +74,7 @@
   console.keyMap = "pl2";
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # services.printing.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;

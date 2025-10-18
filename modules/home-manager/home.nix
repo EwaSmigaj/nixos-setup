@@ -32,6 +32,9 @@
     vscodium
     python314
     kitty
+    mpv
+    typst
+    nix-top
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
