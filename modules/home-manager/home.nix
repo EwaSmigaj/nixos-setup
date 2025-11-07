@@ -35,6 +35,7 @@
     mpv
     typst
     nix-top
+    python313Packages.conda
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -75,4 +76,12 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  programs.git = {
+  enable = true;
+  userName = "EwaSmigaj";
+  userEmail = "ewa.smigaj1@gmail.com";
+  extraConfig = {
+    init.defaultBranch = "main";
+  };
+};
 }

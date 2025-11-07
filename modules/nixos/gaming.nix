@@ -14,7 +14,6 @@
     mangohud
     protonup-qt 
     lutris 
-    bottles 
     heroic 
   ];
 

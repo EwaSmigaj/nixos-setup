@@ -11,7 +11,7 @@
       ../../modules/nixos/gaming.nix
       ../../modules/nixos/nvidia.nix
       ../../modules/nixos/nh.nix
-      ../../modules/nixos/brother-printer.nix
+      # ../../modules/nixos/brother-printer.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -19,7 +19,6 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   facter.reportPath = ./facter.json;
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -36,8 +35,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
