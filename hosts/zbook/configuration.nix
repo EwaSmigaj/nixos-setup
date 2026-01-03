@@ -19,8 +19,8 @@
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
-      vaapiIntel
-      vaapiVdpau
+      intel-vaapi-driver
+      libva-vdpau-driver
       libvdpau-va-gl
     ];
   };
@@ -33,5 +33,16 @@
   };
 
   # Battery management 
-  services.tlp.enable = true; 
+  services.auto-cpufreq.enable = true;
+services.auto-cpufreq.settings = {
+  battery = {
+     governor = "powersave";
+     turbo = "never";
+  };
+  charger = {
+     governor = "performance";
+     turbo = "auto";
+  };
+};
+  services.power-profiles-daemon.enable=false;
 }
