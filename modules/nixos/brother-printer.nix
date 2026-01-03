@@ -33,5 +33,5 @@ in
 
     # Enable system-config-printer (GUI managment tool)
     programs.system-config-printer.enable = true;
-  
+
 }

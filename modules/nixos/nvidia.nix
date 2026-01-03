@@ -6,6 +6,8 @@
 
 
   hardware.nvidia = {
+    # enable = true;
+
     # Modesetting is required.
     modesetting.enable = true;
 
