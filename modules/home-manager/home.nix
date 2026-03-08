@@ -15,12 +15,18 @@
     telegram-desktop
     notepad-next
     vscodium
-    python314
     kitty
     mpv
     typst
     nix-top
     zsh
+
+    python314
+    poetry
+    ninja
+    meson
+    pkg-config
+    gcc
   ];
 
   programs.git = {

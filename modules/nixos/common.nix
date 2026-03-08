@@ -24,7 +24,7 @@
     LC_TIME = "pl_PL.UTF-8";
   };
 
-  # Desktop Environment (Shared)
+  # Desktop Environment 
   services.xserver.enable = true;
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.plasma6.enable = true;
@@ -57,11 +57,23 @@
     user = "ewa";
   };
 
+  environment.systemPackages = [
+    pkgs.kdePackages.kdenlive
+  ];
+
   # Fonts & Basic Programs
   programs.git.enable = true;
   fonts.packages = with pkgs; [
-    noto-fonts noto-fonts-cjk-sans noto-fonts-color-emoji
-    fira-code fira-code-symbols liberation_ttf
+    # Custom Avenir font - properly imported
+    (pkgs.callPackage ./fonts/avenir-next-condensed.nix {})
+    
+    # System fonts
+    noto-fonts 
+    noto-fonts-cjk-sans 
+    noto-fonts-color-emoji
+    fira-code 
+    fira-code-symbols 
+    liberation_ttf
   ];
 
   system.stateVersion = "25.05";
